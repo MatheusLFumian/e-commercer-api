@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->mediumInteger('sales_id',true)->unique();
+            $table->mediumInteger('sales_id')->unique();
             $table->float('total_price');
             $table->json('products');
             $table->timestamps();

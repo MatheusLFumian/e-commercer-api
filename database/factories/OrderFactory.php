@@ -17,22 +17,22 @@ class OrderFactory extends Factory
     public function definition(): array
     {
         return [
-            'sales_id' => fake()->randomNumber(9),
-            'total_price' => fake()->randomFloat(),
-            'products' => '[
+            'sales_id' => fake()->randomNumber(5),
+            'total_price' => fake()->randomFloat(2, 0, 100000),
+            'products' => json_encode('[
                 {
-                  "product_id":' . fake()->randomNumber() . ',
+                  "product_id":' . fake()->randomNumber(5) . ',
                   "name": "' . fake()->name() . '",
-                  "price": ' . fake()->randomFloat(2) . ',
+                  "price": ' . fake()->randomFloat(2, 0, 10000) . ',
                   "amount": ' . fake()->numberBetween(1, 50) . '
                 },
                 {
-                  "product_id":' . fake()->randomNumber() . ',
+                  "product_id":' . fake()->randomNumber(5) . ',
                   "name": "' . fake()->name() . '",
-                  "price": ' . fake()->randomFloat(2) . ',
+                  "price": ' . fake()->randomFloat(2, 0, 10000) . ',
                   "amount": ' . fake()->numberBetween(1, 50) . '
                 },
-              ]'
+              ]')
         ];
     }
 }
